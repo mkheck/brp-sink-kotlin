@@ -20,23 +20,23 @@ fun main(args: Array<String>) {
 @Configuration
 //@EnableBinding(Sink::class)
 class FlightAttendant {
-    /*
     //MH: This does NOT work (but it should)
     @Bean
     fun seatPassenger(): Consumer<Flux<FlyingPassenger>> =
         Consumer {
-            it.map {
+            it.subscribe {
                 println(it)
             }
         }
-    */
 
+    /*
     //MH: This does work, but it isn't dealing with a Flux
     @Bean
     fun seatPassenger(): Consumer<FlyingPassenger> =
         Consumer {
             println(it)
         }
+    */
 
     /*
     @StreamListener(Sink.INPUT)
