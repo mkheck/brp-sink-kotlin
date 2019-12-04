@@ -20,8 +20,10 @@ fun main(args: Array<String>) {
 @Configuration
 //@EnableBinding(Sink::class)
 class FlightAttendant {
-    //MH: This does NOT work (but it should)
     @Bean
+//    MH: Not yet available, but coming soon
+//    fun seatPassenger(): (Flux<FlyingPassenger>) -> Unit =
+//        {
     fun seatPassenger(): Consumer<Flux<FlyingPassenger>> =
         Consumer {
             it.subscribe {
@@ -29,16 +31,7 @@ class FlightAttendant {
             }
         }
 
-    /*
-    //MH: This does work, but it isn't dealing with a Flux
-    @Bean
-    fun seatPassenger(): Consumer<FlyingPassenger> =
-        Consumer {
-            println(it)
-        }
-    */
-
-    /*
+    /*  MH: Non-Publisher example
     @StreamListener(Sink.INPUT)
 	fun seatPassenger(flyingPassenger: FlyingPassenger) = println(flyingPassenger)
     */
